@@ -2,6 +2,7 @@ import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Test App",
@@ -12,11 +13,11 @@ export const metadata: Metadata = {
 function TopNav() {
   return (
     <nav className="flex items-center justify-between w-full p-4 text-xl font-semibold border-b">
-        <a href="/">Home</a>
-        <a href="/layer2">About</a>
-        <a className="/Dashboard">Dashboard</a>
-        <a className="/Explore">Explore</a>
-        <a className="/SignIn">Sign In</a>
+        <Link href="/">Home</Link>
+        <Link href="/layer2">About</Link>
+        <Link href="/Dashboard">Dashboard</Link>
+        <Link href="/Explore">Explore</Link>
+        <Link href="/SignIn">Sign In</Link>
     </nav>
   )
 }
