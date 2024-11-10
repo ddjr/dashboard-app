@@ -12,21 +12,11 @@ export const metadata: Metadata = {
 function TopNav() {
   return (
     <nav className="flex items-center justify-between w-full p-4 text-xl font-semibold border-b">
-      <div>
-        <a className="">Home</a>
-      </div>
-      <div>
-        <a className="">About</a>
-      </div>
-      <div>
-        <a className="">Dashboard</a>
-      </div>
-      <div>
-        <a className="">Explore</a>
-      </div>
-      <div>
-        <a className="">Sign In</a>
-      </div>
+        <a href="/">Home</a>
+        <a href="/layer2">About</a>
+        <a className="/Dashboard">Dashboard</a>
+        <a className="/Explore">Explore</a>
+        <a className="/SignIn">Sign In</a>
     </nav>
   )
 }

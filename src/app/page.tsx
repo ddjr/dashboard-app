@@ -26,6 +26,7 @@ export default function HomePage() {
       }
       </div>
       Hello (gallery in progress)
+      <a href="/layer2">forward</a>
     </main>
   );
 }
