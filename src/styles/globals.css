@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply h-screen bg-gradient-to-b from-[#9d37aa] to-[#151630] text-white;
+}
