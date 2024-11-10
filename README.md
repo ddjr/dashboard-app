@@ -1,7 +1,7 @@
 # T3 Gallery
 
 ## TODO
-- [ ] make it deploy (vercel)
+- [x] make it deploy (vercel)
 - [ ] scaffold basic ui with mock data
 - [ ] Actually set up a database
 - [ ] Attach database to UI
