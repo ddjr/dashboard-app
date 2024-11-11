@@ -1,3 +1,5 @@
+"use client";
+
 import {
   SignedOut,
   SignedIn,
@@ -6,6 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
+import { UploadButton } from "~/utils/uploadthing";
 
 export default function TopNav() {
   return (
@@ -14,11 +17,23 @@ export default function TopNav() {
       <Link href="/layer2">About</Link>
       <Link href="/Dashboard">Dashboard</Link>
       <Link href="/Explore">Explore</Link>
-      <div>
+      <div className="flex flex-row">
         <SignedOut>
           <SignInButton />
         </SignedOut>
         <SignedIn>
+          <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              // Do something with the response
+              console.log("Files: ", res);
+              alert("Upload Completed");
+            }}
+            onUploadError={(error: Error) => {
+              // Do something with the error.
+              alert(`ERROR! ${error.message}`);
+            }}
+          />
           <UserButton />
         </SignedIn>
       </div>
