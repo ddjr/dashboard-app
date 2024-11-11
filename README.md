@@ -11,7 +11,7 @@
 - We are living in the future
 - [x] Attach database to UI and build schema
 - [x] Add authentication (w/ clerk)
-- [ ] Add image upload
+- [x] Add image upload
 - [ ] "taint" (server-only)
 - [ ] Use Next/Image component
 - [ ] Error management (w/ Sentry)

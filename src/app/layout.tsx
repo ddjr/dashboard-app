@@ -10,6 +10,9 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import TopNav from "./_components/topnav";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+import { ourFileRouter } from "./api/uploadthing/core";
 
 export const metadata: Metadata = {
   title: "My Amazing App",
@@ -23,6 +26,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" className={`${GeistSans.variable}`}>
+        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <body className="flex flex-col">
           <div className="w-full">
             <TopNav />

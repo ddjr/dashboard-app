@@ -11,10 +11,12 @@ async function Images() {
   return (
     <>
       <div className="flex flex-wrap gap-4 p-2">
-        {[...images, ...images, ...images].map((image, idx) => (
-          <div key={image.id + "" + idx} className="flex w-52 flex-col">
+        {images.map((image, idx) => (
+          <div key={image.id} className="flex w-52 flex-col">
             <img src={image.url} className="aspect-video object-cover" />
-            <div>{image.name}</div>
+            <div className="overflow-hidden scroll-smooth text-ellipsis hover:scroll-auto">
+              {image.name}
+            </div>
           </div>
         ))}
       </div>
