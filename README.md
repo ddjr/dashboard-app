@@ -13,3 +13,11 @@
 - [ ] Delete button (w/ Server Actions)
 - [ ] Analytics (posthog)
 - [ ] Ratelimiting (upstash)
+
+# Things I'm Learning
+- Next.js is awesome!
+- I need to understand why server side rendering is good
+- Potientally add graphQL subscriptions
+- Wow setting up a database with vercel was so simple
+- I love this Next.js stack
+-
