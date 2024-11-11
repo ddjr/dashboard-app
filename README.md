@@ -1,11 +1,12 @@
 # T3 Gallery
 
 ## TODO
+
 - [x] Make it deploy (vercel)
 - [x] Scaffold basic ui with mock data
 - [x] Tidy up build process
 - [x] Actually set up a database
-- [ ] Attach database to UI and build schema
+- [x] Attach database to UI and build schema
 - [ ] Add authentication (w/ clerk)
 - [ ] Add image upload
 - [ ] Error management (w/ Sentry)
@@ -15,6 +16,7 @@
 - [ ] Ratelimiting (upstash)
 
 # Things I'm Learning
+
 - Next.js is awesome!
 - I need to understand why server side rendering is good
 - Potientally add graphQL subscriptions
