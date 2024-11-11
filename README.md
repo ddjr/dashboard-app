@@ -11,7 +11,9 @@
 - We are living in the future
 - [x] Attach database to UI and build schema
 - [x] Add authentication (w/ clerk)
+- Wow Clerk is dead simple to use and looks amazing!!! 😍
 - [x] Add image upload
+- Upload thing is a really cool service. All of this has been exetremely easy to use!
 - [ ] "taint" (server-only)
 - [ ] Use Next/Image component
 - [ ] Error management (w/ Sentry)
