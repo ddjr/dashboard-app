@@ -1,42 +1,20 @@
-"use client";
-
-import {
-  SignedOut,
-  SignedIn,
-  SignInButton,
-  SignOutButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedOut, SignedIn, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { UploadButton } from "~/utils/uploadthing";
+import SimpleUploadButton from "./simple-upload-button";
 
 export default function TopNav() {
-  const router = useRouter();
   return (
     <nav className="flex h-fit w-full items-center justify-between border-b p-4 text-xl font-semibold">
       <Link href="/">Home</Link>
       <Link href="/layer2">About</Link>
       <Link href="/Dashboard">Dashboard</Link>
       <Link href="/Explore">Explore</Link>
-      <div className="flex flex-row">
+      <div className="flex flex-row gap-4">
         <SignedOut>
           <SignInButton />
         </SignedOut>
         <SignedIn>
-          <UploadButton
-            endpoint="imageUploader"
-            onClientUploadComplete={(res) => {
-              // Do something with the response
-              router.refresh();
-              console.log("Files: ", res);
-              alert("Upload Completed");
-            }}
-            onUploadError={(error: Error) => {
-              // Do something with the error.
-              alert(`ERROR! ${error.message}`);
-            }}
-          />
+          <SimpleUploadButton />
           <UserButton />
         </SignedIn>
       </div>

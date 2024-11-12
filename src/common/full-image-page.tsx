@@ -10,7 +10,7 @@ export default async function FullPageImageView(props: { id: number }) {
       <div className="m-auto flex items-center justify-center">
         <img src={image.url} className="object-contain" />
       </div>
-      <div className="flex min-w-52 flex-col border-l border-white backdrop-blur-sm">
+      <div className="flex min-w-52 flex-col border-l border-white">
         <div className="overflow-hidden text-ellipsis border-b p-2 text-center text-xl">
           {image.name}
         </div>
