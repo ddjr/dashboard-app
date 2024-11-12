@@ -1,12 +1,5 @@
-// export default async function PhotoModal(props: {
-//   params: Promise<{ id: string }>;
-// }) {
-//   const params = await props.params;
-//   const { id: photoId } = params;
-//   return <div>{photoId}</div>;
-// }
-
-import { getImage } from "~/server/queries";
+import { Modal } from "./modal";
+import FullPageImageView from "~/components/full-image-page";
 
 export default async function Page({
   params,
@@ -14,10 +7,9 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const photoId = Number((await params).id);
-  const { url } = await getImage(photoId);
   return (
-    <div>
-      <img src={url} className="w-96" />
-    </div>
+    <Modal>
+      <FullPageImageView id={photoId} />
+    </Modal>
   );
 }
