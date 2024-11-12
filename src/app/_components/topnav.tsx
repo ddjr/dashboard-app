@@ -14,7 +14,7 @@ import { UploadButton } from "~/utils/uploadthing";
 export default function TopNav() {
   const router = useRouter();
   return (
-    <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
+    <nav className="flex h-fit w-full items-center justify-between border-b p-4 text-xl font-semibold">
       <Link href="/">Home</Link>
       <Link href="/layer2">About</Link>
       <Link href="/Dashboard">Dashboard</Link>
