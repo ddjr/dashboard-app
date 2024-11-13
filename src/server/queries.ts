@@ -5,10 +5,9 @@ import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { analyticsServerClient } from "./analytics";
-import { revalidatePath } from "next/cache";
 
 export async function getMyImages() {
-  const user = auth();
+  const user = await auth();
   if (!user.userId) throw new Error("Unauthorized");
   const images = await db.query.images.findMany({
     where: (model, { eq }) => eq(model.userId, user.userId),
@@ -18,7 +17,7 @@ export async function getMyImages() {
 }
 
 export async function getImage(id: number) {
-  const user = auth();
+  const user = await auth();
   if (!user.userId) throw new Error("Unauthorized");
 
   const image = await db.query.images.findFirst({
@@ -32,7 +31,7 @@ export async function getImage(id: number) {
 }
 
 export async function deleteImage(id: number) {
-  const user = auth();
+  const user = await auth();
   if (!user.userId) throw new Error("Unauthorized");
 
   await db
@@ -46,6 +45,14 @@ export async function deleteImage(id: number) {
       imageId: id,
     },
   });
-  revalidatePath("/");
+  /** TODO: Fix redirect("/") command. Not redirecting.
+   *  This works with "/about" and fails with "/"
+   *
+   * Error: Route "/" used `...headers()` or similar iteration.
+   * `headers()` should be awaited before using its value.
+   * Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
+   *
+   * console.log("redirecting...");
+   */
   redirect("/");
 }

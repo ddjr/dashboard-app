@@ -24,7 +24,7 @@
 - Pausible is another logging option
 - Grafana is an option
 - posthog is pretty cool. fairly easy to use. It's a little slow.
-- [ ] Delete button (w/ Server Actions)
+- [x] Delete button (w/ Server Actions)
 - [ ] Ratelimiting (upstash)
 
 # Things I'm Learning
