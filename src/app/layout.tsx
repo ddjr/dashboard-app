@@ -8,6 +8,8 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "sonner";
+import { PHProvider } from "./_analytics/providers";
+import posthog from "posthog-js";
 
 export const metadata: Metadata = {
   title: "My Amazing App",
@@ -22,22 +24,25 @@ export default function RootLayout({
   children: React.ReactNode;
   modal: React.ReactNode;
 }) {
+  posthog.capture("my event", { property: "value" });
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable} dark`}>
-        <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-        <body>
-          <div className="flex h-screen flex-col">
-            <TopNav />
-            <div className="no-scrollbar flex-grow overflow-y-scroll">
-              {children}
+      <PHProvider>
+        <html lang="en" className={`${GeistSans.variable} dark`}>
+          <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
+          <body>
+            <div className="flex h-screen flex-col">
+              <TopNav />
+              <div className="no-scrollbar flex-grow overflow-y-scroll">
+                {children}
+              </div>
             </div>
-          </div>
-          {modal}
-          <div id="modal-root" />
-          <Toaster />
-        </body>
-      </html>
+            {modal}
+            <div id="modal-root" />
+            <Toaster />
+          </body>
+        </html>
+      </PHProvider>
     </ClerkProvider>
   );
 }

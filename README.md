@@ -21,6 +21,8 @@
 - [x] Update upload button to be less cringe
 - [x] ShadUIify (specifically toasts)
 - [ ] Analytics (posthog)
+- Pausible is another logging option
+- Grafana is an option
 - [ ] Delete button (w/ Server Actions)
 - [ ] Ratelimiting (upstash)
 

@@ -3,9 +3,11 @@
  * for Docker builds.
  */
 import "./src/env.js";
+import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import("next").NextConfig} */
 const coreConfig = {
+  // UploadThing
   images: {
     remotePatterns: [{ hostname: "utfs.io" }],
   },
@@ -15,9 +17,20 @@ const coreConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  // PostHog
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://us.i.posthog.com/:path*",
+      },
+    ];
+  },
 };
-
-import { withSentryConfig } from "@sentry/nextjs";
 
 const config = withSentryConfig(coreConfig, {
   // For all available options, see:
@@ -28,7 +41,6 @@ const config = withSentryConfig(coreConfig, {
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
-
   // For all available options, see:
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
