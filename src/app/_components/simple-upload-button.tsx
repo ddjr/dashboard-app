@@ -3,7 +3,6 @@
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
 import { toast } from "sonner";
-import { useEffect } from "react";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -88,11 +87,10 @@ function makeUploadToast() {
 
 export default function SimpleUploadButton() {
   const router = useRouter();
-  useEffect(() => {
-    makeUploadToast();
-  }, []);
-
   const { inputProps } = useUploadThingInputProps("imageUploader", {
+    onUploadBegin() {
+      makeUploadToast();
+    },
     onClientUploadComplete() {
       toast.dismiss("upload-begin");
       toast("upload compelete!");
