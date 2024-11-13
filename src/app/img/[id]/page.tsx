@@ -1,4 +1,4 @@
-import FullPageImageView from "~/common/full-image-page";
+import FullPageImageView from "~/components/ui/full-image-page";
 
 export default async function PhotoPage({
   params,

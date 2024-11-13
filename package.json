@@ -36,6 +36,7 @@
     "next-themes": "^0.4.3",
     "postgres": "^3.4.4",
     "posthog-js": "^1.184.1",
+    "posthog-node": "^4.2.1",
     "react": "19.0.0-rc-ed15d500-20241110",
     "react-dom": "19.0.0-rc-ed15d500-20241110",
     "server-only": "^0.0.1",
