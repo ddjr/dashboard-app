@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
+      <html lang="en" className={`${GeistSans.variable} dark`}>
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <body>
           <div className="flex h-screen flex-col">
