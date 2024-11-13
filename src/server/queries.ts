@@ -5,6 +5,7 @@ import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { analyticsServerClient } from "./analytics";
+import { revalidatePath } from "next/cache";
 
 export async function getMyImages() {
   const user = await auth();
@@ -24,8 +25,8 @@ export async function getImage(id: number) {
     where: (model, { eq }) => eq(model.id, id),
   });
 
-  if (!image) throw new Error("Image not found");
-  if (image.userId !== user.userId) throw new Error("Unauthorized");
+  if (!image) redirect("/");
+  if (image.userId !== user.userId) redirect("/");
 
   return image;
 }
@@ -45,7 +46,8 @@ export async function deleteImage(id: number) {
       imageId: id,
     },
   });
-  /** TODO: Fix redirect("/") command. Not redirecting.
+  /**
+   * TODO: Fix redirect("/") command. Not redirecting.
    *  This works with "/about" and fails with "/"
    *
    * Error: Route "/" used `...headers()` or similar iteration.
@@ -54,5 +56,6 @@ export async function deleteImage(id: number) {
    *
    * console.log("redirecting...");
    */
+  revalidatePath("/");
   redirect("/");
 }
