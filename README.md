@@ -1,5 +1,14 @@
 # T3 Gallery
 
+## Technologies
+
+- Next.js - Used for server-side rendering
+- github - version control
+- Vercel Postgres - Database
+- Uploadthing - Used for uploading images to s3 bucket
+- Posthog - Used for event logging
+- Upstash - Used for rate limiting
+
 ## TODO
 
 - [x] Make it deploy (vercel)
@@ -25,7 +34,7 @@
 - Grafana is an option
 - posthog is pretty cool. fairly easy to use. It's a little slow.
 - [x] Delete button (w/ Server Actions)
-- [ ] Ratelimiting (upstash)
+- [x] Ratelimiting (upstash)
 
 # Things I'm Learning
 
